@@ -5,7 +5,8 @@ function isPangram(arg) {
 
   let result = [];
 
-  let argArray = arg.replace(/\s|_|[0-9]*/g, '').split('');
+  let argArray = arg.toLowerCase().replace(/[^a-z]+/g, '').split('');
+  console.log(argArray)
 
   argArray.forEach(function(letter) {
     result.push(alphabet.includes(letter));
