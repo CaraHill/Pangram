@@ -1,9 +1,21 @@
 function isPangram(arg) {
-  let alphabet = 'abcdefghijklmnopqrstuvwxyz';
+  let alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 
   if(arg == '') { return false; }
 
-  return alphabet.includes(arg);
+  let result = [];
+
+  let argArray = arg.replace(/\s/g, '').split('');
+
+  argArray.forEach(function(letter) {
+    result.push(alphabet.includes(letter));
+  });
+
+  if(result.includes(false)) {
+    return false;
+  } else {
+    return true;
+  }
 }
 
 export { isPangram }
