@@ -11,7 +11,13 @@ function isPangram(arg) {
     result.push(alphabet.includes(letter));
   });
 
-  if(result.includes(false)) {
+  let allIncluded = [];
+
+  alphabet.forEach(function(letter) {
+    allIncluded.push(argArray.includes(letter));
+  });
+
+  if(result.includes(false) || allIncluded.includes(false)) {
     return false;
   } else {
     return true;
