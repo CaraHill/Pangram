@@ -3,13 +3,17 @@ const alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm
 function isPangram(arg) {
   if(arg == '') { return false; }
 
-  let argArray = arg.toLowerCase().replace(/[^a-z]+/g, '').split('');
+  let argArray = prepareArg(arg).split('');
 
   let resultArray = alphabet.map(function(letter) {
      return argArray.includes(letter);
   });
 
   return !resultArray.includes(false);
+}
+
+function prepareArg(arg) {
+  return arg.toLowerCase().replace(/[^a-z]+/g, '');
 }
 
 export { isPangram }
